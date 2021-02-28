@@ -1,0 +1,13 @@
+@import "config.css";
+
+.container {
+  position: relative;
+  width: 730px;
+  height: 560px;
+  overflow: hidden;
+  @media (--phablet) {
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+  }
+}

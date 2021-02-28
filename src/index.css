@@ -1,0 +1,41 @@
+@import "normalize.css";
+@import "config.css";
+
+@font-face {
+  font-family: "PFDinTextCondPro";
+  font-weight: bold;
+  src: url("fonts/PFDinTextCondPro-Bold.otf") format("opentype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PFDinTextCondPro";
+  src: url("fonts/PFDinTextCondPro-Regular.otf") format("opentype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PFDinTextCompPro";
+  src: url("fonts/PFDinTextCompPro-Regular.otf") format("opentype");
+  font-display: swap;
+}
+
+/*
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+*/
+
+body {
+  min-width: 320px;
+
+  font-family: var(--font-main);
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* https://stackoverflow.com/a/47686467/2807660 */
+  overscroll-behavior-y: none;
+}

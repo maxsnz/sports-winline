@@ -1,0 +1,138 @@
+@import "config.css";
+
+.container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.crest {
+  position: absolute;
+  width: 358px;
+  height: 538px;
+  top: 0;
+  left: 0;
+  background-size: 100%;
+  @media (--phablet) {
+    width: 86vw;
+    height: 130vw;
+    top: 50%;
+    left: 50%;
+    /* transform: translate(-50%, -50%); */
+    transform: translateX(-50%);
+    opacity: 0.6;
+  }
+}
+
+.crestSpartak {
+  background-image: url('./crest-spartak.png');
+}
+
+.crestKrasnodar {
+  background-image: url('./crest-krasnodar.png');
+}
+
+.blacker {
+  display: none;
+  @media (--phablet) {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.3);
+
+  }
+}
+
+.content {
+  position: absolute;
+  top: 100px;
+  left: 350px;
+  width: 334px;
+  color: #fff;
+  @media (--phablet) {
+    position: relative;
+    top: 78px;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 16px;
+  }
+}
+
+.title {
+  font-weight: bold;
+  font-size: 34px;
+  margin-bottom: 15px;
+  @media (--mobileSmall) {
+    font-size: 26px;
+  }
+}
+
+.description {
+  font-family: var(--font-narrow);
+  font-size: 26px;
+  line-height: 28px;
+  margin-bottom: 20px;
+  @media (--phablet) {
+    font-size: 30px;
+    line-height: 32px;
+  }
+  @media (--mobileSmall) {
+    font-size: 20px;
+    line-height: 24px;
+  }
+}
+
+.couponButton {
+  width: 100%;
+  height: 48px;
+  text-align: center;
+  background: #F48024;
+  border-radius: 2px;
+  font-family: var(--font-narrow);
+  font-size: 24px;
+  line-height: 48px;
+  margin-bottom: 65px;
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  @media (--notTouchDevice) {
+    cursor: pointer;
+  }
+}
+
+.contentBottom {
+  display: flex;
+  justify-content: space-between;
+  @media (--phablet) {
+    position: fixed;
+    bottom: 42px;
+    left: 0;
+    width: 100%;
+    padding: 0 16px;
+    box-sizing: border-box;
+  }
+} 
+
+.restart {
+  background: #434343;
+  width: 72px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @media (--notTouchDevice) {
+    cursor: pointer;
+  }
+}
+
+.contentBottomShare {
+  display: flex;
+}
+
+.shareButton {
+  margin-left: 6px;
+}

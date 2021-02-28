@@ -1,0 +1,28 @@
+@import "config.css";
+
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  background: url('./logo.png');
+  background-size: 100%;
+  width: 61px;
+  height: 41px;
+  margin-right: 10px;
+  @media (--mobileSmall) {
+    width: 21px;
+    height: 20px;
+    margin-right: 5px;
+  }
+}
+
+.text {
+  color: #000;
+  font-family: var(--font-narrow);
+  font-size: 20px;
+  @media (--mobileSmall) {
+    font-size: 14px;
+  }
+}

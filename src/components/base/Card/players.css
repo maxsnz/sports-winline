@@ -1,0 +1,59 @@
+.spartak-1 {
+  background-image: url("./spartak/1.png");
+}
+
+.spartak-2 {
+  background-image: url("./spartak/2.png");
+}
+
+.spartak-3 {
+  background-image: url("./spartak/3.png");
+}
+
+.spartak-4 {
+  background-image: url("./spartak/4.png");
+}
+
+.spartak-5 {
+  background-image: url("./spartak/5.png");
+}
+
+.spartak-6 {
+  background-image: url("./spartak/6.png");
+}
+
+.spartak-7 {
+  background-image: url("./spartak/7.png");
+}
+
+.krasnodar-1 {
+  background-image: url("./krasnodar/1.png");
+}
+
+.krasnodar-2 {
+  background-image: url("./krasnodar/2.png");
+}
+
+.krasnodar-3 {
+  background-image: url("./krasnodar/3.png");
+}
+
+.krasnodar-4 {
+  background-image: url("./krasnodar/4.png");
+}
+
+.krasnodar-5 {
+  background-image: url("./krasnodar/5.png");
+}
+
+.krasnodar-6 {
+  background-image: url("./krasnodar/6.png");
+}
+
+.krasnodar-7 {
+  background-image: url("./krasnodar/7.png");
+}
+
+.spartak-promo, .krasnodar-promo {
+  background-image: url("./promo.png");
+}

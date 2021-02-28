@@ -1,0 +1,31 @@
+{
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "globals": {
+    "document": false
+  },
+  "extends": [
+    "eslint-config-airbnb-base",
+    "prettier",
+    "plugin:react/recommended"
+  ],
+  "plugins": ["prettier", "react"],
+  "rules": {
+    "prettier/prettier": ["error"],
+    "react/jsx-uses-vars": "error",
+    "react/jsx-uses-react": "error"
+  },
+  "settings": {
+    "import/resolver": {
+      "webpack": {
+        "config": "webpack/production.config.js"
+      }
+    },
+    "react": {
+      "version": "detect"
+    }
+  }
+}

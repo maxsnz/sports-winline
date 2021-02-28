@@ -1,0 +1,70 @@
+@import "config.css";
+
+.card {
+  width: 160px;
+  height: 150px;
+  background-color: #fff;
+  border-radius: 2px;
+  background-size: 100%;
+  margin-bottom: 12px;
+  position: relative;
+  box-shadow: 0 0 6px 0 rgba(0,0,0,0.70);
+  @media (--notTouchDevice) {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+  @media (--phablet) {
+    width: 42vw;
+    height: 40vw;
+  }
+}
+
+.name {
+  opacity: 0;
+  background: rgba(63,63,63, 0.88);
+  border-radius: 0 0 2px 2px;
+  width: 100%;
+  height: 46px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  color: #fff;
+  font-size: 17px;
+  font-family: var(--narrow);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.correct .name, .wrong .name {
+  opacity: 1;
+}
+
+.correct:before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: #069003;
+  opacity: 0.5;
+  display: block;
+  content: '';
+}
+
+.wrong:before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: #B52525;
+  opacity: 0.5;
+  display: block;
+  content: '';
+}

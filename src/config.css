@@ -1,0 +1,22 @@
+@custom-media --retina only screen and (min-device-pixel-ratio: 2),
+  only screen and (min-resolution: 192dpi),
+  only screen and (min-resolution: 2dppx);
+
+@custom-media --laptop (max-width: 1279px);
+@custom-media --tablet (max-width: 999px);
+@custom-media --phablet (max-width: 767px);
+@custom-media --mobile (max-width: 659px);
+@custom-media --mobileSmall (max-width: 375px);
+
+@custom-media --onlyTablet (min-width: 768px) and (max-width: 999px);
+@custom-media --onlyDesktop (min-width: 1000px);
+@custom-media --onlyTabletDesktop (min-width: 768px);
+
+@custom-media --touchDevice (hover: none) and (pointer: coarse);
+@custom-media --notTouchDevice (hover: hover) and (pointer: fine);
+
+:root {
+  --color-orange: #F48024;
+  --font-main: "PFDinTextCondPro", sans-serif;
+  --font-narrow: "PFDinTextCompPro", sans-serif;
+}

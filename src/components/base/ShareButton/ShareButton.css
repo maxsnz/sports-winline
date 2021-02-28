@@ -1,0 +1,29 @@
+@import "config.css";
+
+.shareButton {
+  border-radius: 2px;
+  width: 72px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @media (--notTouchDevice) {
+    cursor: pointer;
+  }
+
+  @media (--mobileSmall) {
+    width: 60px;
+  }
+}
+
+.shareButton--fb {
+  background: #1877F2;
+}
+
+.shareButton--vk {
+  background: #4680C2;
+}
+
+.shareButton--tw {
+  background: #00ABFB;
+}

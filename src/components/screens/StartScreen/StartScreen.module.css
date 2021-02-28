@@ -1,0 +1,90 @@
+@import "config.css";
+
+.container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.content {
+  position: relative;
+}
+
+.title {
+  padding-top: 62px;
+  text-align: center;
+  font-size: 34px;
+  line-height: 40px;
+  color: #FFFFFF;
+  font-weight: bold;
+  @media (--phablet) {
+    font-size: 32px;
+    line-height: 34px;
+    padding: 68px 16px 0;
+  }
+
+  @media (--mobileSmall) {
+    font-size: 25px;
+    line-height: 28px;
+  }
+}
+
+.flags {
+  margin: -30px auto 0;
+  background: url('./flags-start.png') 50% 50% no-repeat;
+  width: 593px;
+  height: 360px;
+  position: relative;
+  @media (--retina) {
+    background: url('./flags-start-2x.png') 50% 50% no-repeat;
+    background-size: 100%;
+  }
+  @media (--phablet) {
+    margin: -10px auto 0;
+    background: url("./flags-mobile.png") no-repeat;
+    background-size: 100%;
+    width: 100vw;
+    height: calc(100vw * 640 / 610);
+  }
+}
+
+.chooseClub {
+  text-align: center;
+  color: #fff;
+  font-size: 25px;
+  margin-top: -60px;
+  position: relative;
+  font-family: var(--font-narrow);
+  @media (--phablet) {
+    margin-top: -30px;
+  }
+}
+
+.clubs {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 45px 0;
+  box-sizing: border-box;
+  position: relative;
+  @media (--phablet) {
+    padding: 15px 16px 0;
+
+  }
+}
+
+.clubButton {
+  width: 304px;
+  height: 48px;
+  background: var(--color-orange);
+  color: #fff;
+  text-align: center;
+  font-size: 24px;
+  line-height: 46px;
+  font-family: var(--font-narrow);
+  @media (--notTouchDevice) {
+    cursor: pointer;
+  }
+  @media (--phablet) {
+    width: calc((100vw - 42px) / 2);
+  }
+}
