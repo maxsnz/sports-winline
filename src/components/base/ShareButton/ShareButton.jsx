@@ -49,7 +49,7 @@ const share = (provider, url) => {
   trackEvent(`share_${provider}_click`);
   if (provider === "fb") {
     popupCenter(`https://www.facebook.com/sharer/sharer.php?u=${url}`);
-  } else if (provider === "fb") {
+  } else if (provider === "vk") {
     popupCenter(`https://vk.com/share.php?url=${url}`);
   } else if (provider === "tw") {
     popupCenter(`https://twitter.com/intent/tweet?url=${url}`);
