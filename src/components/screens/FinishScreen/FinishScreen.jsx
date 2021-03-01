@@ -36,6 +36,7 @@ const FinishScreen = ({
 }) => {
   const resultIndex = getResultIndex(result);
   const [d1, d2] = descriptions[resultIndex];
+  const shareLink = `/winlinederbyfive/share/${team}/${resultIndex + 1}`;
 
   return (
     <div className={styles.container}>
@@ -70,17 +71,17 @@ const FinishScreen = ({
             <ShareButton
               className={styles.shareButton}
               provider="fb"
-              link={`/share/${team}/${resultIndex + 1}`}
+              link={shareLink}
             />
             <ShareButton
               className={styles.shareButton}
               provider="vk"
-              link={`/share/${team}/${resultIndex + 1}`}
+              link={shareLink}
             />
             <ShareButton
               className={styles.shareButton}
               provider="tw"
-              link={`/share/${team}/${resultIndex + 1}&text=${d1}`}
+              link={`${shareLink}&text=${d1}`}
             />
           </div>
         </div>

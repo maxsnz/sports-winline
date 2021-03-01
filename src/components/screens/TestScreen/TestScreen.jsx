@@ -8,7 +8,7 @@ import LogoSpartak from "base/LogoSpartak";
 import LogoKrasnodar from "base/LogoKrasnodar";
 import Timer from "base/Timer";
 import Card from "base/Card";
-import { shuffle } from "utils";
+import { shuffle, trackEvent } from "utils";
 import styles from "./TestScreen.module.css";
 
 const allPlayers = {
@@ -41,6 +41,16 @@ const TestScreen = ({ team, onRestart, onFinish, onLogoClientClick }) => {
     currentIndex: 0,
     correctAnswers: 0,
     isBlocked: false,
+    answered: {
+      1: false,
+      2: false,
+      3: false,
+      4: false,
+      5: false,
+      6: false,
+      7: false,
+      promo: false,
+    },
   }));
 
   useEffect(() => {
@@ -49,26 +59,44 @@ const TestScreen = ({ team, onRestart, onFinish, onLogoClientClick }) => {
     setState({ ...state, questions, answers });
   }, []);
 
-  const { questions, answers, currentIndex, correctAnswers, isBlocked } = state;
+  const {
+    questions,
+    answers,
+    currentIndex,
+    correctAnswers,
+    isBlocked,
+    answered,
+  } = state;
   const players = allPlayers[team];
 
   const onAnswer = (id) => {
-    setState({ ...state, isBlocked: true });
-    setTimeout(() => {
-      const newIndex = currentIndex + 1;
-      const newCorrectAnswers =
-        questions[currentIndex] === id ? correctAnswers + 1 : correctAnswers;
-      setState({
-        ...state,
-        correctAnswers: newCorrectAnswers,
-        currentIndex: newIndex,
-        isBlocked: false,
-      });
+    if (id === "promo") {
+      trackEvent("Winline_card_click");
+    } else {
+      trackEvent("User_Card_Click");
+    }
 
-      if (newIndex >= questions.length) {
-        onFinish(newCorrectAnswers);
-      }
-    }, 1000);
+    setState({ ...state, isBlocked: true });
+
+    const newIndex = currentIndex + 1;
+    const isAnswerCorrect = questions[currentIndex] === id;
+    const newCorrectAnswers = isAnswerCorrect
+      ? correctAnswers + 1
+      : correctAnswers;
+    setState({
+      ...state,
+      correctAnswers: newCorrectAnswers,
+      currentIndex: newIndex,
+      isBlocked: false,
+      answered: {
+        ...state.answered,
+        [id]: isAnswerCorrect ? "correct" : "wrong",
+      },
+    });
+
+    if (newIndex >= questions.length) {
+      onFinish(newCorrectAnswers);
+    }
   };
 
   const onTimerEnd = () => {
@@ -114,6 +142,8 @@ const TestScreen = ({ team, onRestart, onFinish, onLogoClientClick }) => {
             isBlocked={isBlocked}
             team={team}
             id={id}
+            isAnsweredCorrect={answered[id] === "correct"}
+            isAnsweredWrong={answered[id] === "wrong"}
           />
         ))}
       </div>
