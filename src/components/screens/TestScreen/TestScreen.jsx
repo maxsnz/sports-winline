@@ -79,7 +79,8 @@ const TestScreen = ({ team, onRestart, onFinish, onLogoClientClick }) => {
     setState({ ...state, isBlocked: true });
 
     const newIndex = currentIndex + 1;
-    const isAnswerCorrect = questions[currentIndex] === id;
+    const correctId = questions[currentIndex];
+    const isAnswerCorrect = correctId === id;
     const newCorrectAnswers = isAnswerCorrect
       ? correctAnswers + 1
       : correctAnswers;
@@ -90,7 +91,7 @@ const TestScreen = ({ team, onRestart, onFinish, onLogoClientClick }) => {
       isBlocked: false,
       answered: {
         ...state.answered,
-        [id]: isAnswerCorrect ? "correct" : "wrong",
+        [correctId]: isAnswerCorrect ? "correct" : "wrong",
       },
     });
 
