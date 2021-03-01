@@ -55,6 +55,10 @@ const share = {
     "og:description": description,
     "twitter:card": "summary_large_image",
     "twitter:site": "@sportsru",
+    "twitter:description": description,
+    "twitter:title": title,
+    "twitter:image": image,
+    
   }),
 };
 
