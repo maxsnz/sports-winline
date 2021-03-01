@@ -38,4 +38,5 @@ body {
 
   /* https://stackoverflow.com/a/47686467/2807660 */
   overscroll-behavior-y: none;
+  overscroll-behavior-x: none;
 }

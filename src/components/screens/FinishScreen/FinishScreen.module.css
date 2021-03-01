@@ -13,23 +13,30 @@
   top: 0;
   left: 0;
   background-size: 100%;
+  background-repeat: no-repeat;
+  display: block;
   @media (--phablet) {
     width: 86vw;
     height: 130vw;
     top: 50%;
     left: 50%;
-    /* transform: translate(-50%, -50%); */
-    transform: translateX(-50%);
+    transform: translate(-50%, -50%);
     opacity: 0.6;
   }
 }
 
 .crestSpartak {
   background-image: url('./crest-spartak.png');
+  @media (--phablet) {
+    background-image: url('./crest-spartak-mobile.png');
+  }
 }
 
 .crestKrasnodar {
   background-image: url('./crest-krasnodar.png');
+  @media (--phablet) {
+    background-image: url('./crest-krasnodar-mobile.png');
+  }
 }
 
 .blacker {

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import StartScreen from "screens/StartScreen";
 import TestScreen from "screens/TestScreen";
 import FinishScreen from "screens/FinishScreen";
@@ -43,10 +43,28 @@ const Game = () => {
     trackEvent("Logo_winline_click");
   };
 
+  const containerRef = useRef();
+
+  useEffect(() => {
+    const resizeHandler = () => {
+      const { innerWidth, innerHeight } = window;
+      if (innerWidth < 768) {
+        containerRef.current.style.height = `${innerHeight}px`;
+      } else {
+        containerRef.current.style.height = null;
+      }
+    };
+    resizeHandler();
+    window.addEventListener("resize", resizeHandler, true);
+    return () => {
+      window.removeEventListener("resize", resizeHandler);
+    };
+  }, []);
+
   const { step, team, result } = state;
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} ref={containerRef}>
       {step === "start" && (
         <StartScreen
           onStart={onStart}

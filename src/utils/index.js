@@ -34,6 +34,13 @@ export function shuffle(a) {
 }
 
 export function trackEvent(text) {
-  // TODO
-  console.log("track event:", text);
+  // console.log("track event:", text);
+  const { dataLayer } = window;
+  if (dataLayer) {
+    dataLayer.push({
+      eventCategory: "winlinederbyfive",
+      eventName: text,
+      event: "winlinederbyfive",
+    });
+  }
 }

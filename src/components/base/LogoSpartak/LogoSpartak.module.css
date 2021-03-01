@@ -8,6 +8,7 @@
 .icon {
   background: url('./logo.png');
   background-size: 100%;
+  background-repeat: no-repeat;
   width: 61px;
   height: 41px;
   margin-right: 10px;

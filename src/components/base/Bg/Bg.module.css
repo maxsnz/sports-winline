@@ -10,8 +10,9 @@
   left: 0;
   bottom: 0;
   @media (--phablet) {
+  position: fixed;
     background: url("./bg-mobile.jpg");
     background-size: 414px;
-    min-height: 100vh;
+    /* min-height: 100vh; */
   }
 }

@@ -12,12 +12,27 @@ const descriptions = [
   [
     "Болеть – обязательно, матчасть – подучить!",
     "Ставьте на «Краснодар» с Winline",
+    {
+      spartak: "Оказалось, я не очень-то разбираюсь в игроках «Спартака»",
+      krasnodar: "Оказалось, я не очень-то разбираюсь в игроках «Краснодара»",
+    },
   ],
   [
     "Различаете Берга и Классона с закрытыми глазами!",
     "Ставьте на «Краснодар» с Winline",
+    {
+      spartak: "Я разбираюсь в игроках «Спартака»!",
+      krasnodar: "Я разбираюсь в игроках «Краснодара»!",
+    },
   ],
-  ["Настоящий знаток «Краснодара»", "Ставьте на любимую команду c Winline"],
+  [
+    "Настоящий знаток «Краснодара»",
+    "Ставьте на любимую команду c Winline",
+    {
+      spartak: "Я идеально разбираюсь в игроках «Спартака»!",
+      krasnodar: "Я идеально разбираюсь в игроках «Краснодара»!",
+    },
+  ],
 ];
 
 const getResultIndex = (n) => {
@@ -35,17 +50,19 @@ const FinishScreen = ({
   onLogoClientClick,
 }) => {
   const resultIndex = getResultIndex(result);
-  const [d1, d2] = descriptions[resultIndex];
+  const [d1, d2, d3] = descriptions[resultIndex];
   const shareLink = `/winlinederbyfive/share/${team}/${resultIndex + 1}`;
 
   return (
     <div className={styles.container}>
       <Bg />
-      <div
+      <a
         className={cx(styles.crest, {
           [styles.crestSpartak]: team === "spartak",
           [styles.crestKrasnodar]: team === "krasnodar",
         })}
+        href="/"
+        target="_blank"
       />
       <div className={styles.blacker} />
       <LogoSports onClick={onLogoSportsClick} />
@@ -71,17 +88,17 @@ const FinishScreen = ({
             <ShareButton
               className={styles.shareButton}
               provider="fb"
-              link={shareLink}
+              link={`${shareLink}&quote=${d3[team]}`}
             />
             <ShareButton
               className={styles.shareButton}
               provider="vk"
-              link={shareLink}
+              link={`${shareLink}&title=${d3[team]}`}
             />
             <ShareButton
               className={styles.shareButton}
               provider="tw"
-              link={`${shareLink}&text=${d1}`}
+              link={`${shareLink}&text=${d3[team]}`}
             />
           </div>
         </div>
