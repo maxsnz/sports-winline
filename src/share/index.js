@@ -1,45 +1,47 @@
+const origin = process.env.ORIGIN || "https://specials.sports.ru";
+
 const share = {
-  image: "https://specials.sports.ru/winlinederbyfive/share.png",
+  image: `${origin}/winlinederbyfive/share.png`,
   title: "Знаете игроков «Спартака» и «Краснодара»? Сейчас проверим",
   description: "Новый тип теста на Sports.ru под Winline Derby",
-  url: "https://specials.sports.ru/winlinederbyfive",
+  url: `${origin}/winlinederbyfive`,
   result: [
     {
       filename: "share/spartak/1/index.html",
-      image: "https://specials.sports.ru/winlinederbyfive/share-spartak-1.png",
+      image: `${origin}/winlinederbyfive/share-spartak-1.png`,
       title: "Болеть – обязательно, матчасть – подучить!",
       description: "Ставьте на «Спартак» с Winline",
-      url: "https://specials.sports.ru/winlinederbyfive/share/spartak/1",
+      url: `${origin}/winlinederbyfive/share/spartak/1`,
     }, {
       filename: "share/spartak/2/index.html",
-      image: "https://specials.sports.ru/winlinederbyfive/share-spartak-2.png",
+      image: `${origin}/winlinederbyfive/share-spartak-2.png`,
       title: "Различаете Жиго с Джикией с закрытыми глазами!", 
       description: "Ставьте на «Спартак» с Winline",
-      url: "https://specials.sports.ru/winlinederbyfive/share/spartak/2",
+      url: `${origin}/winlinederbyfive/share/spartak/2`,
     }, {
       filename: "share/spartak/3/index.html",
-      image: "https://specials.sports.ru/winlinederbyfive/share-spartak-3.png",
+      image: `${origin}/winlinederbyfive/share-spartak-3.png`,
       title: "Настоящий знаток «Спартака»", 
       description: "Ставьте на любимую команду c Winline",
-      url: "https://specials.sports.ru/winlinederbyfive/share/spartak/3",
+      url: `${origin}/winlinederbyfive/share/spartak/3`,
     }, {
       filename: "share/krasnodar/1/index.html",
-      image: "https://specials.sports.ru/winlinederbyfive/share-krasnodar-1.png",
+      image: `${origin}/winlinederbyfive/share-krasnodar-1.png`,
       title: "Болеть – обязательно, матчасть – подучить!", 
       description: "Ставьте на «Краснодар» с Winline",
-      url: "https://specials.sports.ru/winlinederbyfive/share/krasnodar/1",
+      url: `${origin}/winlinederbyfive/share/krasnodar/1`,
     }, {
       filename: "share/krasnodar/2/index.html",
-      image: "https://specials.sports.ru/winlinederbyfive/share-krasnodar-2.png",
+      image: `${origin}/winlinederbyfive/share-krasnodar-2.png`,
       title: "Различаете Берга и Классона с закрытыми глазами!", 
       description: "Ставьте на «Краснодар» с Winline",
-      url: "https://specials.sports.ru/winlinederbyfive/share/krasnodar/2",
+      url: `${origin}/winlinederbyfive/share/krasnodar/2`,
     }, {
       filename: "share/krasnodar/3/index.html",
-      image: "https://specials.sports.ru/winlinederbyfive/share-krasnodar-3.png",
+      image: `${origin}/winlinederbyfive/share-krasnodar-3.png`,
       title: "Настоящий знаток «Краснодара»", 
       description: "Ставьте на любимую команду c Winline",
-      url: "https://specials.sports.ru/winlinederbyfive/share/krasnodar/3",
+      url: `${origin}/winlinederbyfive/share/krasnodar/3`,
     }
   ],
   makeMeta: ({ title, description, url, image }) => ({
