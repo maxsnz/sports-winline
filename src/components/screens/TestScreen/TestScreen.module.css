@@ -102,6 +102,9 @@
   height: 48px;
   @media (--notTouchDevice) {
     cursor: pointer;
+    &:hover {
+      background: #CC691B;
+    }
   }
   @media (--phablet) {
     width: auto;
@@ -138,4 +141,104 @@
   }
 }
 
+.blurred {
+  filter: blur(1px);
+}
 
+.popupContainer {
+  position: absolute;
+  top: 132px;
+  left: 0;
+  width: 100%;
+  height: 428px;
+  @media (--phablet) {
+    height: auto;
+    position: fixed;
+    top: 190px;
+    bottom: 0;
+    width: 100%;
+  }
+}
+
+.popupBlacker {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.3);
+  filter: blur(4px);
+}
+.popup {
+  width: 456px;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 50px 15px 35px;
+  background: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  @media (--phablet) {
+    width: 80%;
+  }
+  @media (--mobileSmall) {
+    padding: 40px 15px 25px;
+  }
+}
+.popupClose {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  @media (--mobileSmall) {
+    right: 16px;
+    top: 16px;
+  }
+  @media (--notTouchDevice) {
+    cursor: pointer;
+  }
+}
+
+.popupClose svg {
+  width: 16px;
+  height: 16px;
+  @media (--mobileSmall) {
+    width: 14px;
+    height: 14px;
+  }
+}
+.popupText {
+  font-size: 32px;
+  font-family: var(--narrow);
+  @media (--mobileSmall) {
+    font-size: 24px;
+  }
+}
+
+.popupButton {
+  width: 248px;
+  height: 48px;
+  text-align: center;
+  background: #F48024;
+  border-radius: 2px;
+  font-family: var(--font-narrow);
+  font-size: 24px;
+  line-height: 48px;
+  margin: 30px auto 0;
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  @media (--phablet) {
+    width: 75%;
+  }
+  @media (--mobileSmall) {
+    font-size: 17px;
+    margin: 20px auto 0;
+  }
+  @media (--notTouchDevice) {
+    cursor: pointer;
+    &:hover {
+      background: #CC691B;
+    }
+  }
+}

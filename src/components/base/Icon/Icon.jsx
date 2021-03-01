@@ -157,6 +157,16 @@ const ShareTw = () => (
   </svg>
 );
 
+const Close = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 17">
+    <path
+      fill="#000"
+      fillRule="nonzero"
+      d="M16.8175.7512L16.0665 0l-7.513 7.5129L1.0404 0 .2893.7512l7.513 7.5129-7.513 7.513.7512.7511 7.513-7.5129 7.513 7.5129.751-.7511-7.5129-7.513z"
+    />
+  </svg>
+);
+
 const Icon = ({ type, ...props }) => {
   switch (type) {
     case "logoSports":
@@ -171,6 +181,8 @@ const Icon = ({ type, ...props }) => {
       return <ShareVk {...props} />;
     case "tw":
       return <ShareTw {...props} />;
+    case "close":
+      return <Close {...props} />;
     default:
       return null;
   }

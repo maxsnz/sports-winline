@@ -6,6 +6,7 @@ import Icon from "base/Icon";
 import LogoSports from "base/LogoSports";
 import LogoClient from "base/LogoClient";
 import ShareButton from "base/ShareButton";
+import { crestLink, promoLink } from "config";
 import styles from "./FinishScreen.module.css";
 
 const descriptions = [
@@ -61,8 +62,9 @@ const FinishScreen = ({
           [styles.crestSpartak]: team === "spartak",
           [styles.crestKrasnodar]: team === "krasnodar",
         })}
-        href="/"
+        href={crestLink}
         target="_blank"
+        rel="noreferrer"
       />
       <div className={styles.blacker} />
       <LogoSports onClick={onLogoSportsClick} />
@@ -74,8 +76,9 @@ const FinishScreen = ({
         <div className={styles.description}>{d2}</div>
         <a
           className={styles.couponButton}
-          href="/"
+          href={promoLink}
           target="_blank"
+          rel="noreferrer"
           onClick={onCouponClick}
         >
           Забрать 1000 рублей

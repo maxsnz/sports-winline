@@ -99,5 +99,6 @@ exports.resolve = {
     screens: resolve(execPath, "src/components/screens/"),
     base: resolve(execPath, "src/components/base/"),
     modules: resolve(execPath, "src/components/modules/"),
+    config: resolve(execPath, "src/config.js"),
   },
 };

@@ -9,6 +9,7 @@
   margin-bottom: 12px;
   position: relative;
   box-shadow: 0 0 6px 0 rgba(0,0,0,0.70);
+  user-select: none;
   @media (--notTouchDevice) {
     cursor: pointer;
     transition: transform 0.3s ease;

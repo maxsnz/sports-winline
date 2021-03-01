@@ -108,6 +108,9 @@
   text-decoration: none;
   @media (--notTouchDevice) {
     cursor: pointer;
+    &:hover {
+      background: #CC691B;
+    }
   }
 }
 
@@ -133,6 +136,9 @@
   justify-content: center;
   @media (--notTouchDevice) {
     cursor: pointer;
+    &:hover {
+      background: #333333;
+    }
   }
 }
 

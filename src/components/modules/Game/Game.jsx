@@ -79,6 +79,7 @@ const Game = () => {
           team={team}
           onLogoSportsClick={onLogoSportsClick}
           onLogoClientClick={onLogoClientClick}
+          onCouponClick={onCouponClick}
         />
       )}
       {step === "finish" && (

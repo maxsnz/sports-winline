@@ -83,6 +83,9 @@
   font-family: var(--font-narrow);
   @media (--notTouchDevice) {
     cursor: pointer;
+    &:hover {
+      background: #CC691B;
+    }
   }
   @media (--phablet) {
     width: calc((100vw - 42px) / 2);

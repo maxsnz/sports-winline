@@ -9,6 +9,7 @@ import LogoKrasnodar from "base/LogoKrasnodar";
 import Timer from "base/Timer";
 import Card from "base/Card";
 import { shuffle, trackEvent } from "utils";
+import { promoLink } from "config";
 import styles from "./TestScreen.module.css";
 
 const allPlayers = {
@@ -34,13 +35,18 @@ const allPlayers = {
   },
 };
 
-const TestScreen = ({ team, onRestart, onFinish, onLogoClientClick }) => {
+const TestScreen = ({
+  team,
+  onRestart,
+  onFinish,
+  onLogoClientClick,
+  onCouponClick,
+}) => {
   const [state, setState] = useState(() => ({
     questions: [],
     answers: [],
     currentIndex: 0,
     correctAnswers: 0,
-    isBlocked: false,
     answered: {
       1: false,
       2: false,
@@ -51,6 +57,7 @@ const TestScreen = ({ team, onRestart, onFinish, onLogoClientClick }) => {
       7: false,
       promo: false,
     },
+    showPromoPopup: false,
   }));
 
   useEffect(() => {
@@ -64,8 +71,8 @@ const TestScreen = ({ team, onRestart, onFinish, onLogoClientClick }) => {
     answers,
     currentIndex,
     correctAnswers,
-    isBlocked,
     answered,
+    showPromoPopup,
   } = state;
   const players = allPlayers[team];
 
@@ -76,7 +83,7 @@ const TestScreen = ({ team, onRestart, onFinish, onLogoClientClick }) => {
       trackEvent("User_Card_Click");
     }
 
-    setState({ ...state, isBlocked: true });
+    const promoClicked = id === "promo";
 
     const newIndex = currentIndex + 1;
     const correctId = questions[currentIndex];
@@ -86,9 +93,9 @@ const TestScreen = ({ team, onRestart, onFinish, onLogoClientClick }) => {
       : correctAnswers;
     setState({
       ...state,
+      showPromoPopup: promoClicked,
       correctAnswers: newCorrectAnswers,
       currentIndex: newIndex,
-      isBlocked: false,
       answered: {
         ...state.answered,
         [correctId]: isAnswerCorrect ? "correct" : "wrong",
@@ -102,6 +109,13 @@ const TestScreen = ({ team, onRestart, onFinish, onLogoClientClick }) => {
 
   const onTimerEnd = () => {
     onFinish(correctAnswers);
+  };
+
+  const onPopupClose = () => {
+    setState({
+      ...state,
+      showPromoPopup: false,
+    });
   };
 
   return (
@@ -133,14 +147,13 @@ const TestScreen = ({ team, onRestart, onFinish, onLogoClientClick }) => {
           </div>
         </div>
       </div>
-      <div className={styles.cards}>
+      <div className={cx(styles.cards, { [styles.blurred]: showPromoPopup })}>
         {answers.map((id) => (
           <Card
             key={id}
             onClick={() => onAnswer(id)}
             name={players[id]}
             isCorrect={questions[currentIndex] === id}
-            isBlocked={isBlocked}
             team={team}
             id={id}
             isAnsweredCorrect={answered[id] === "correct"}
@@ -148,6 +161,28 @@ const TestScreen = ({ team, onRestart, onFinish, onLogoClientClick }) => {
           />
         ))}
       </div>
+      {showPromoPopup && (
+        <div className={styles.popupContainer}>
+          <div className={styles.popupBlacker} onClick={onPopupClose} />
+          <div className={styles.popup}>
+            <div className={styles.popupClose} onClick={onPopupClose}>
+              <Icon type="close" />
+            </div>
+            <div className={styles.popupText}>
+              Ставьте на «Спартак» с Winline
+            </div>
+            <a
+              className={styles.popupButton}
+              href={promoLink}
+              target="_blank"
+              rel="noreferrer"
+              onClick={onCouponClick}
+            >
+              Забрать 1000 рублей
+            </a>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
@@ -157,6 +192,7 @@ TestScreen.propTypes = {
   onRestart: T.func.isRequired,
   onFinish: T.func.isRequired,
   onLogoClientClick: T.func.isRequired,
+  onCouponClick: T.func.isRequired,
 };
 
 export default TestScreen;
