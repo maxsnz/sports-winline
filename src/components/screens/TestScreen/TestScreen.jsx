@@ -82,13 +82,23 @@ const TestScreen = ({
   const players = allPlayers[team];
 
   const onAnswer = (id) => {
-    if (id === "promo") {
+    const promoClicked = id === "promo";
+
+    if (promoClicked) {
       trackEvent("Winline_card_click");
     } else {
       trackEvent("User_Card_Click");
     }
 
-    const promoClicked = id === "promo";
+    if (answered[id]) {
+      if (promoClicked) {
+        setState({
+          ...state,
+          showPromoPopup: true,
+        });
+      }
+      return;
+    }
 
     const newIndex = currentIndex + 1;
     const correctId = questions[currentIndex];
@@ -155,7 +165,11 @@ const TestScreen = ({
           </div>
           <div className={styles.headerContentRight}>
             <div className={styles.headerTime}>
-              <Timer timerLength={90 * 1000} onEnd={onTimerEnd} />
+              <Timer
+                timerLength={90 * 1000}
+                onEnd={onTimerEnd}
+                isPaused={showPromoPopup}
+              />
             </div>
             <div className={styles.headerRestart} onClick={() => onRestart()}>
               <Icon type="restart" />

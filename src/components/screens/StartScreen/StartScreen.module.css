@@ -54,9 +54,9 @@
 
 .flags {
   margin: -30px auto 0;
-  background: url('./flags-start.png') 50% 50% no-repeat;
+  background: url('./flags-start-1x.png') 50% 50% no-repeat;
   width: 593px;
-  height: 360px;
+  height: 361px;
   position: relative;
   @media (--retina) {
     background: url('./flags-start-2x.png') 50% 50% no-repeat;
@@ -69,6 +69,7 @@
     width: 100vw;
     height: calc(100vw * 640 / 610);
   }
+
 }
 
 .chooseClub {
@@ -80,6 +81,9 @@
   font-family: var(--font-narrow);
   @media (--phablet) {
     margin-top: -30px;
+  }
+  @media (--mobileSmall) {
+    margin-top: -60px;
   }
 }
 

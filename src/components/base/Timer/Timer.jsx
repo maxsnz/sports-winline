@@ -27,7 +27,8 @@ class Timer extends React.Component {
 
     this.interval = setInterval(() => {
       const { timeRemaining } = this.state;
-      const newtTimeRemaining = timeRemaining - 1000;
+      const { isPaused } = this.props;
+      const newtTimeRemaining = isPaused ? timeRemaining : timeRemaining - 1000;
       if (newtTimeRemaining <= 0) {
         this.setState({
           timeRemaining: 0,
@@ -66,6 +67,7 @@ Timer.propTypes = {
   timerLength: T.number.isRequired,
   onEnd: T.func.isRequired,
   className: T.string,
+  isPaused: T.bool,
 };
 
 export default Timer;
