@@ -167,6 +167,70 @@ const Close = () => (
   </svg>
 );
 
+const getColorByTeam = (team) => {
+  switch (team) {
+    case "spartak":
+      return "#DF0012";
+    case "krasnodar":
+      return "#006034";
+    default:
+      return "#006034";
+  }
+};
+
+const Wrong = ({ team }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 59 57">
+    <path
+      fill={getColorByTeam(team)}
+      fillRule="evenodd"
+      d="M47.1165 0L29.5004 17.3118 11.8827 0 .5 11.1874l17.6161 17.3118L.5 45.8126 11.8827 57l17.6177-17.3126L47.1165 57 58.5 45.8126 40.8831 28.4992 58.5 11.1874z"
+    />
+  </svg>
+);
+
+Wrong.propTypes = {
+  team: T.oneOf(["spartak", "krasnodar"]).isRequired,
+};
+
+const Correct = ({ team }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    xmlnsXlink="http://www.w3.org/1999/xlink"
+    viewBox="0 0 67 59"
+  >
+    <defs>
+      <path id="correct_icon_a" d="M0 .9291h13.8779v32.1733H0z" />
+      <path id="correct_icon_c" d="M.5793.4151H46.335v58.5848H.5793z" />
+    </defs>
+    <g fill="none" fillRule="evenodd">
+      <g transform="translate(1 24)">
+        <mask id="correct_icon_b" fill="#fff">
+          <use xlinkHref="#correct_icon_a" />
+        </mask>
+        <path
+          fill={getColorByTeam(team)}
+          d="M12.1439.9291H1.7349c-.972 0-1.735.7861-1.735 1.7876v28.5981c0 1.0015.763 1.7876 1.735 1.7876h10.409c.972 0 1.734-.7861 1.734-1.7876V2.7167c.001-1.0015-.762-1.7876-1.734-1.7876"
+          mask="url(#correct_icon_b)"
+        />
+      </g>
+      <g transform="translate(19)">
+        <mask id="correct_icon_d" fill="#fff">
+          <use xlinkHref="#correct_icon_c" />
+        </mask>
+        <path
+          fill={getColorByTeam(team)}
+          d="M46.3343 27.593c0-2.9785-1.941-5.9928-5.648-5.9928h-16.807c2.4-4.525 3.106-10.8897 1.437-15.5465-1.225-3.4251-3.568-5.4238-6.6-5.6271l-.049-.0042c-1.974-.1275-3.682 1.4297-3.846 3.5052-.431 4.6189-2.352 12.7883-5.105 15.6887-2.319 2.4422-4.302 3.4652-7.591 5.1594-.477.2455-.996.513-1.546.8017.01.1254.016.2508.016.3793v28.9459c.396.1432.789.2855 1.174.4245C7.1963 57.2984 11.8883 59 19.0583 59h13.588c3.708 0 5.648-3.0153 5.648-5.9927 0-.884-.17-1.77-.507-2.5813 1.235-.2339 2.316-.8597 3.116-1.8174.91-1.0883 1.41-2.5349 1.41-4.073 0-.8809-.169-1.767-.505-2.576 2.976-.5416 4.527-3.2335 4.527-5.8948 0-1.5435-.522-3.0975-1.54-4.2354 1.016-1.1389 1.539-2.6929 1.539-4.2364"
+          mask="url(#correct_icon_d)"
+        />
+      </g>
+    </g>
+  </svg>
+);
+
+Correct.propTypes = {
+  team: T.oneOf(["spartak", "krasnodar"]).isRequired,
+};
+
 const Icon = ({ type, ...props }) => {
   switch (type) {
     case "logoSports":
@@ -183,6 +247,10 @@ const Icon = ({ type, ...props }) => {
       return <ShareTw {...props} />;
     case "close":
       return <Close {...props} />;
+    case "wrong":
+      return <Wrong {...props} />;
+    case "correct":
+      return <Correct {...props} />;
     default:
       return null;
   }

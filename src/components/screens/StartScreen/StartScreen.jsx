@@ -8,6 +8,8 @@ import styles from "./StartScreen.module.css";
 const StartScreen = ({ onStart, onLogoSportsClick, onLogoClientClick }) => (
   <div className={styles.container}>
     <Bg />
+    <div className={styles.gradientLeft} />
+    <div className={styles.gradientRight} />
     <LogoSports onClick={onLogoSportsClick} />
     <LogoClient onClick={onLogoClientClick} />
     <div className={styles.content}>
@@ -18,10 +20,10 @@ const StartScreen = ({ onStart, onLogoSportsClick, onLogoClientClick }) => (
       <div className={styles.chooseClub}>Выберите клуб</div>
       <div className={styles.clubs}>
         <div className={styles.clubButton} onClick={() => onStart("spartak")}>
-          «Спартак»
+          Спартак
         </div>
         <div className={styles.clubButton} onClick={() => onStart("krasnodar")}>
-          «Краснодар»
+          Краснодар
         </div>
       </div>
     </div>

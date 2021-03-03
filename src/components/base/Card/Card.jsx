@@ -1,6 +1,7 @@
 import React from "react";
 import T from "prop-types";
 import cx from "classnames";
+import Icon from "base/Icon";
 import styles from "./Card.module.css";
 import "./players.css";
 
@@ -23,7 +24,20 @@ const Card = ({
     )}
     onClick={onClick}
   >
-    <div className={styles.name}>{name}</div>
+    <div className={styles.answered}>
+      <div className={styles.answeredIcon}>
+        {isAnsweredCorrect && <Icon type="correct" team={team} />}
+        {isAnsweredWrong && <Icon type="wrong" team={team} />}
+      </div>
+      <div
+        className={cx(styles.answeredName, {
+          [styles.red]: team === "spartak",
+          [styles.green]: team === "krasnodar",
+        })}
+      >
+        {name}
+      </div>
+    </div>
   </div>
 );
 

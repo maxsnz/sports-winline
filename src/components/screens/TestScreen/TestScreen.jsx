@@ -12,6 +12,11 @@ import { shuffle, trackEvent } from "utils";
 import { promoLink } from "config";
 import styles from "./TestScreen.module.css";
 
+const teamName = {
+  spartak: "Спартак",
+  krasnodar: "Краснодар",
+};
+
 const allPlayers = {
   spartak: {
     1: "Илья Кутепов",
@@ -122,6 +127,18 @@ const TestScreen = ({
     <div className={styles.container}>
       <Bg opacity={0.88} />
       <div
+        className={cx(styles.gradientLeft, {
+          [styles.gradientRed]: team === "spartak",
+          [styles.gradientGreen]: team === "krasnodar",
+        })}
+      />
+      <div
+        className={cx(styles.gradientRight, {
+          [styles.gradientRed]: team === "spartak",
+          [styles.gradientGreen]: team === "krasnodar",
+        })}
+      />
+      <div
         className={cx(styles.header, {
           [styles.headerSpartak]: team === "spartak",
           [styles.headerKrasnodar]: team === "krasnodar",
@@ -169,7 +186,7 @@ const TestScreen = ({
               <Icon type="close" />
             </div>
             <div className={styles.popupText}>
-              Ставьте на «Спартак» с Winline
+              Ставьте на «{teamName[team]}» с Winline!
             </div>
             <a
               className={styles.popupButton}

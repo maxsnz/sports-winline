@@ -15,10 +15,27 @@
 }
 
 @font-face {
+font-family: "PFDinTextCondPro";
+  src: url("fonts/PFDinTextCondPro-BoldItalic.otf") format("opentype");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
   font-family: "PFDinTextCompPro";
   src: url("fonts/PFDinTextCompPro-Regular.otf") format("opentype");
   font-display: swap;
 }
+
+@font-face {
+  font-family: "PFDinTextCompPro";
+  src: url("fonts/PFDinTextCompPro-BoldItalic.otf") format("opentype");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
 
 /*
 *,

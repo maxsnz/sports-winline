@@ -20,7 +20,7 @@
 }
 
 .text {
-  color: #000;
+  color: #fff;
   font-family: var(--font-narrow);
   font-size: 20px;
   @media (--mobileSmall) {

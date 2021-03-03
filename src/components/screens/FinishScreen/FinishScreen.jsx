@@ -57,6 +57,18 @@ const FinishScreen = ({
   return (
     <div className={styles.container}>
       <Bg />
+      <div
+        className={cx(styles.gradientLeft, {
+          [styles.gradientRed]: team === "spartak",
+          [styles.gradientGreen]: team === "krasnodar",
+        })}
+      />
+      <div
+        className={cx(styles.gradientRight, {
+          [styles.gradientRed]: team === "spartak",
+          [styles.gradientGreen]: team === "krasnodar",
+        })}
+      />
       <a
         className={cx(styles.crest, {
           [styles.crestSpartak]: team === "spartak",
