@@ -2,8 +2,10 @@ import React, { useEffect, useState, useRef } from "react";
 import StartScreen from "screens/StartScreen";
 import TestScreen from "screens/TestScreen";
 import FinishScreen from "screens/FinishScreen";
-import { trackEvent } from "utils";
+import { trackEvent, parentResize } from "utils";
 import styles from "./Game.module.css";
+
+const body = document.getElementsByTagName("body")[0];
 
 const Game = () => {
   const [state, setState] = useState({ step: "start", team: null });
@@ -48,10 +50,14 @@ const Game = () => {
   useEffect(() => {
     const resizeHandler = () => {
       const { innerWidth, innerHeight } = window;
-      if (innerWidth < 768) {
-        containerRef.current.style.height = `${innerHeight}px`;
+      if (innerWidth < 730) {
+        // containerRef.current.style.height = `${innerHeight}px`;
+        body.style.height = `${innerHeight}px`;
+        parentResize();
       } else {
-        containerRef.current.style.height = null;
+        // containerRef.current.style.height = null;
+        body.style.height = null;
+        parentResize();
       }
     };
     resizeHandler();
