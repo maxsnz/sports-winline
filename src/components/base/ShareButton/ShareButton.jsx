@@ -46,7 +46,7 @@ const popupCenter = (url) => {
 };
 
 const share = (provider, url) => {
-  trackEvent(`share_${provider}_click`);
+  trackEvent(`share_${provider}_click`, provider);
   if (provider === "fb") {
     popupCenter(`https://www.facebook.com/sharer/sharer.php?u=${url}`);
   } else if (provider === "vk") {

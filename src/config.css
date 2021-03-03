@@ -4,7 +4,7 @@
 
 @custom-media --laptop (max-width: 1279px);
 @custom-media --tablet (max-width: 999px);
-@custom-media --phablet (max-width: 767px);
+@custom-media --phablet (max-width: 729px);
 @custom-media --mobile (max-width: 659px);
 @custom-media --mobileSmall (max-width: 375px);
 

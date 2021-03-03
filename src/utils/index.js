@@ -33,14 +33,28 @@ export function shuffle(a) {
   return a;
 }
 
-export function trackEvent(text) {
+export function trackEvent(eventName, eventLabel = "") {
   // console.log("track event:", text);
   const { dataLayer } = window;
   if (dataLayer) {
     dataLayer.push({
       eventCategory: "winlinederbyfive",
-      eventName: text,
+      eventName,
+      eventLabel,
       event: "winlinederbyfive",
     });
   }
+}
+
+export function parentResize() {
+  const dataUTILS = {
+    for: "DFPIC",
+    action: "resizeIframe",
+    selector: `#winlinederbyfive`,
+    sizes: {
+      height: document.body.scrollHeight + 1,
+      width: document.body.scrollWidth + 1,
+    },
+  };
+  window.top.postMessage(JSON.stringify(dataUTILS), "*");
 }
