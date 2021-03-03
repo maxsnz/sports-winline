@@ -36,7 +36,7 @@
 .crest {
   position: absolute;
   width: 358px;
-  height: 538px;
+  height: 544px;
   top: 0;
   left: 0;
   background-size: 100%;
@@ -53,14 +53,20 @@
 }
 
 .crestSpartak {
-  background-image: url('./crest-spartak.png');
+  background-image: url('./crest-spartak-1x.png');
+  @media (--retina) {
+    background-image: url('./crest-spartak-2x.png');
+  }
   @media (--phablet) {
     background-image: url('./crest-spartak-mobile.png');
   }
 }
 
 .crestKrasnodar {
-  background-image: url('./crest-krasnodar.png');
+  background-image: url('./crest-krasnodar-1x.png');
+  @media (--retina) {
+    background-image: url('./crest-krasnodar-2x.png');
+  }
   @media (--phablet) {
     background-image: url('./crest-krasnodar-mobile.png');
   }
