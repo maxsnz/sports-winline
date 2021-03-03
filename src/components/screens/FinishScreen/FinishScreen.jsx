@@ -11,24 +11,42 @@ import styles from "./FinishScreen.module.css";
 
 const descriptions = [
   [
-    "Болеть – обязательно, матчасть – подучить!",
-    "Ставьте на «Краснодар» с Winline!",
+    {
+      spartak: "Болеть – обязательно, матчасть – подучить!",
+      krasnodar: "Болеть – обязательно, матчасть – подучить!",
+    },
+    {
+      spartak: "Ставьте на «Спартак» с Winline!",
+      krasnodar: "Ставьте на «Краснодар» с Winline!",
+    },
     {
       spartak: "Оказалось, я не очень-то разбираюсь в игроках «Спартака»",
       krasnodar: "Оказалось, я не очень-то разбираюсь в игроках «Краснодара»",
     },
   ],
   [
-    "Различаете Берга и Классона с закрытыми глазами!",
-    "Ставьте на «Краснодар» с Winline!",
+    {
+      spartak: "Различаете Жиго с Джикией с закрытыми глазами!",
+      krasnodar: "Различаете Берга и Классона с закрытыми глазами!",
+    },
+    {
+      spartak: "Ставьте на «Спартак» с Winline!",
+      krasnodar: "Ставьте на «Краснодар» с Winline!",
+    },
     {
       spartak: "Я разбираюсь в игроках «Спартака»!",
       krasnodar: "Я разбираюсь в игроках «Краснодара»!",
     },
   ],
   [
-    "Настоящий знаток «Краснодара»",
-    "Ставьте на любимую команду c Winline!",
+    {
+      spartak: "Настоящий знаток «Спартака»",
+      krasnodar: "Настоящий знаток «Краснодара»",
+    },
+    {
+      spartak: "Ставьте на любимую команду c Winline!",
+      krasnodar: "Ставьте на любимую команду c Winline!",
+    },
     {
       spartak: "Я идеально разбираюсь в игроках «Спартака»!",
       krasnodar: "Я идеально разбираюсь в игроках «Краснодара»!",
@@ -84,8 +102,8 @@ const FinishScreen = ({
 
       <div className={styles.content}>
         <div className={styles.title}>Мой результат: {result}/8</div>
-        <div className={styles.description}>{d1}</div>
-        <div className={styles.description}>{d2}</div>
+        <div className={styles.description}>{d1[team]}</div>
+        <div className={styles.description}>{d2[team]}</div>
         <a
           className={styles.couponButton}
           href={promoLink}
