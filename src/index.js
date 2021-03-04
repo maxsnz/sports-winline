@@ -6,7 +6,6 @@ import "./index.css";
 
 const viewport = document.querySelector("meta[name=viewport]");
 const { innerWidth } = window;
-console.log("innerWidth", innerWidth);
 
 if (innerWidth < 730) {
   viewport.setAttribute("content", "width=320, user-scalable=0");

@@ -52,8 +52,8 @@ export function parentResize({ width, height }) {
     action: "resizeIframe",
     selector: `#winlinederbyfive`,
     sizes: {
-      height: height,
-      width: width,
+      height,
+      width,
     },
   };
   window.top.postMessage(JSON.stringify(dataUTILS), "*");
