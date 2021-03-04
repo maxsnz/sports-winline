@@ -200,7 +200,7 @@ const TestScreen = ({
               <Icon type="close" />
             </div>
             <div className={styles.popupText}>
-              Ставьте на «{teamName[team]}» с Winline!
+              Ставь на «{teamName[team]}» бесплатно на Winline!
             </div>
             <a
               className={styles.popupButton}
