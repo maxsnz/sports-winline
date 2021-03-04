@@ -64,11 +64,7 @@ body {
   @media (--phablet) {
     height: auto;
     width: auto;
-  }
-  @media (--mobileSmall) {
-    height: auto;
-    width: auto;
-    /* height: 520px; */
+    overflow-y: scroll;
   }
 }
 
