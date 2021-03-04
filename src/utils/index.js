@@ -46,14 +46,14 @@ export function trackEvent(eventName, eventLabel = "") {
   }
 }
 
-export function parentResize() {
+export function parentResize({ width, height }) {
   const dataUTILS = {
     for: "DFPIC",
     action: "resizeIframe",
     selector: `#winlinederbyfive`,
     sizes: {
-      height: document.body.scrollHeight + 1,
-      width: document.body.scrollWidth + 1,
+      height: height,
+      width: width,
     },
   };
   window.top.postMessage(JSON.stringify(dataUTILS), "*");

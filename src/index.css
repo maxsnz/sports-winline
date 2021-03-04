@@ -62,8 +62,13 @@ body {
   height: 560px;
   overflow: hidden;
   @media (--phablet) {
-    overflow-y: scroll;
-    width: 100%;
+    height: auto;
+    width: auto;
+  }
+  @media (--mobileSmall) {
+    height: auto;
+    width: auto;
+    /* height: 520px; */
   }
 }
 

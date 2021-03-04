@@ -34,7 +34,14 @@ exports.plugins = [
   new HtmlWebpackPlugin({
     template: resolve(execPath, "src/index.html"),
     minify: false,
-    title: 'sports.ru'
+    title: "sports.ru",
+  }),
+  new HtmlWebpackPlugin({
+    template: resolve(execPath, "src/parent.html"),
+    minify: false,
+    title: "parent window",
+    inject: false,
+    filename: "parent.html",
   }),
 ];
 
@@ -74,9 +81,9 @@ exports.module = {
       test: /\.(png|jpg|gif)$/,
       use: [
         {
-          loader: 'url-loader',
+          loader: "url-loader",
           options: {
-            fallback: 'file-loader',
+            fallback: "file-loader",
             limit: 1024 * 20,
           },
         },

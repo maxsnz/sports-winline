@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</head>
+<body>
+  <iframe class="auto-height" height="560" id="winlinederbyfive" src="/" style="border: 0;" width="100%"></iframe>
+  <script>
+    window.addEventListener("message", receiveMessage, false);
+
+    function receiveMessage(event) {
+      if (event.data) {
+        const parsedData = JSON.parse(event.data);
+        if (parsedData.action === "resizeIframe") {
+          const { sizes, selector } = parsedData;
+          const el = document.querySelector("#winlinederbyfive");
+          if (el) {
+            el.style.width = `${sizes.width}px`;
+            el.style.height = `${sizes.height}px`;
+          }
+        }
+      }
+    }
+  </script>
+</body>
+</html>

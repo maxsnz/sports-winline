@@ -30,6 +30,13 @@ exports.plugins = [
     minify: false,
     meta: share.makeMeta(share),
   }),
+  new HtmlWebpackPlugin({
+    template: resolve(execPath, "src/parent.html"),
+    minify: false,
+    title: "parent window",
+    inject: false,
+    filename: "parent.html",
+  }),
   ...share.result.map(({ filename, ...props }) => 
     new HtmlWebpackPlugin({
       filename,

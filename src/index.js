@@ -4,7 +4,16 @@ import App from "components/App";
 import { parentResize } from "utils";
 import "./index.css";
 
-parentResize();
+const viewport = document.querySelector("meta[name=viewport]");
+const { innerWidth } = window;
+console.log("innerWidth", innerWidth);
+
+if (innerWidth < 730) {
+  viewport.setAttribute("content", "width=320, user-scalable=0");
+  parentResize({ width: innerWidth, height: (innerWidth / 320) * 520 });
+} else {
+  parentResize({ width: 730, height: 560 });
+}
 const rootNode = document.getElementById("root");
 
 if (rootNode) {
